@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#d4d5d5"
+    android:baselineAligned="false"
+    android:layout_alignParentTop="false"
+    android:layout_alignParentLeft="false"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentBottom="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnExplore"
+            android:src="@drawable/explore_icon"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Annonser"
+            android:id="@+id/tvExplore"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnJobs"
+            android:src="@drawable/alarm_icon"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Mina jobb"
+            android:id="@+id/tvJobs"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAdd"
+            android:src="@drawable/plus_icon"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Ny annons"
+            android:id="@+id/tvAdd"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnChat"
+            android:src="@drawable/ic_chat_bubble_outline_white_36dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Chat"
+            android:id="@+id/tvChat"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnProfile"
+            android:src="@drawable/ic_person_outline_white_36dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Jag"
+            android:id="@+id/tvProfile"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</LinearLayout>
+</RelativeLayout>
