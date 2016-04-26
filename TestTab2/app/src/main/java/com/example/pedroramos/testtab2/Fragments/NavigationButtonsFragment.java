@@ -1,4 +1,4 @@
-package com.example.pedroramos.testtab2;
+package com.example.pedroramos.testtab2.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.pedroramos.testtab2.MainActivity;
+import com.example.pedroramos.testtab2.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -79,23 +82,19 @@ public class NavigationButtonsFragment extends Fragment {
         getActivity().finish();
     }
 
-    @OnClick(R.id.btnJobs)
-    public void clickJobs(){
+    @OnClick(R.id.btnJobs) void clickJobs(){
 
     }
 
-    @OnClick(R.id.btnAdd)
-    public void clickAdd(){
+    @OnClick(R.id.btnAdd) void clickAdd(){
 
     }
 
-    @OnClick(R.id.btnChat)
-    public void clickChat(){
+    @OnClick(R.id.btnChat) void clickChat(){
 
     }
 
-    @OnClick(R.id.btnProfile)
-    public void clickProfile(){
+    @OnClick(R.id.btnProfile) void clickProfile(){
 
     }
 

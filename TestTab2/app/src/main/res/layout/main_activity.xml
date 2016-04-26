@@ -45,7 +45,7 @@
         android:orientation="horizontal">
 
         <fragment
-            android:name="com.example.pedroramos.testtab2.NavigationButtonsFragment"
+            android:name="com.example.pedroramos.testtab2.Fragments.NavigationButtonsFragment"
             android:id="@+id/fragmentNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
