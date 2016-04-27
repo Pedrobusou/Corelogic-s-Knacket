@@ -15,7 +15,6 @@ import com.example.pedroramos.testtab2.R;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -36,9 +35,7 @@ public class NavigationButtonsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public NavigationButtonsFragment() {
-        // Required empty public constructor
-    }
+    public NavigationButtonsFragment() {}
 
     /**
      * Use this factory method to create a new instance of
@@ -75,11 +72,13 @@ public class NavigationButtonsFragment extends Fragment {
         return view;
     }
 
-    @OnClick(R.id.btnExplore)
-    public void clickExplore(){
-        intent = new Intent(getContext(), MainActivity.class);
-        startActivity(intent);
-        getActivity().finish();
+    @OnClick(R.id.btnExplore) void clickExplore(){
+        //PREVENT RELOAD
+        if(!getActivity().getLocalClassName().equalsIgnoreCase("MainActivity")){
+            intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
     }
 
     @OnClick(R.id.btnJobs) void clickJobs(){
@@ -111,10 +110,10 @@ public class NavigationButtonsFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-        } /*else {
+        } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
-        }*/
+        }
     }
 
     @Override

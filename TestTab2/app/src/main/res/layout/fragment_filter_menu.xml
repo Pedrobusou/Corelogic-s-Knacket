@@ -31,34 +31,33 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp">
 
-            <Button
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Reset"
                 android:id="@+id/btnReset"
-                android:textColor="@android:color/holo_red_dark"
                 android:layout_alignParentStart="true"
-                android:background="#00ffffff" />
+                android:textColor="@android:color/holo_red_dark" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Filter"
-                android:id="@+id/textView2"
-                android:layout_toEndOf="@+id/btnReset"
-                android:layout_toStartOf="@+id/btnDone"
+                android:id="@+id/textView"
                 android:gravity="center"
-                android:layout_alignParentEnd="false" />
+                android:layout_toEndOf="@+id/btnReset"
+                android:layout_toStartOf="@+id/btnDone" />
 
-            <Button
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Done"
                 android:id="@+id/btnDone"
-                android:textColor="@android:color/holo_red_dark"
                 android:layout_alignParentEnd="true"
-                android:background="#00ffffff" />
+                android:textColor="@android:color/holo_red_dark" />
 
         </RelativeLayout>
 
@@ -68,7 +67,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border"
                 android:baselineAligned="false"
-                android:outlineProvider="background">
+                android:outlineProvider="background"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,9 +78,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="CATEGORY"
                     android:id="@+id/textView4"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="5dp" />
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <RelativeLayout
@@ -90,22 +90,10 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Choose"
-                    android:id="@+id/textView5"
-                    android:layout_alignParentStart="true" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton"
-                    android:src="@android:drawable/ic_media_play"
-                    android:background="#00ffffff"
-                    android:layout_alignParentEnd="true" />
-
+                    android:id="@+id/spinnerCategory" />
             </RelativeLayout>
 
             <LinearLayout
@@ -114,7 +102,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border"
                 android:baselineAligned="false"
-                android:outlineProvider="background" >
+                android:outlineProvider="background"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,9 +113,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="NAR"
                     android:id="@+id/textView6"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="5dp" />
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <RelativeLayout
@@ -136,21 +125,10 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="ChooseTimeOfDay3"
-                    android:id="@+id/textView7"
-                    android:layout_alignParentStart="true" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton2"
-                    android:src="@android:drawable/ic_media_play"
-                    android:background="#00ffffff"
-                    android:layout_alignParentEnd="true" />
+                    android:id="@+id/spinnerTime" />
             </RelativeLayout>
 
             <LinearLayout
@@ -159,7 +137,10 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
                 android:baselineAligned="false"
-                android:outlineProvider="background">
+                android:outlineProvider="background"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -167,9 +148,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="OMRADE"
                     android:id="@+id/textView8"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="5dp" />
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <RelativeLayout
@@ -195,7 +174,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/seekBar"
                     android:max="100"
-                    android:progress="50"
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
                     android:layout_toEndOf="@id/tvMinKm"

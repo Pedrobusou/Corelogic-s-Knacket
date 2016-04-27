@@ -2,10 +2,10 @@ package com.example.pedroramos.testtab2;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.design.widget.NavigationView;
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -18,24 +18,29 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.ListView;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pedroramos.testtab2.Fragments.FilterFragment;
+import com.example.pedroramos.testtab2.Fragments.NavigationButtonsFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements FilterFragment.OnFragmentInteractionListener, NavigationButtonsFragment.OnFragmentInteractionListener {
     @Bind(R.id.container) ViewPager mViewPager;
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.tabs) TabLayout tabLayout;
     @Bind(R.id.drawer_layout) DrawerLayout drawer;
-    //@Bind(R.id.nav_view) NavigationView navigationView;
+    @Bind(R.id.toolbar_title) TextView toolbar_title;
 
-    private TabsAdapter mTabsAdapter;
+    public String[] titles = {"Buyers", "Sellers"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,30 +51,32 @@ public class MainActivity extends AppCompatActivity{
         SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         setUpTabs();
-        //setUpNavigationDrawer();
     }
 
     public void setUpTabs(){
-        toolbar.setTitle("addTitle");
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mTabsAdapter = new TabsAdapter(getSupportFragmentManager());
+        TabsAdapter tabsAdapter = new TabsAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager.setAdapter(mTabsAdapter);
+        mViewPager.setAdapter(tabsAdapter);
         tabLayout.setupWithViewPager(mViewPager);
+
+        toolbar_title.setText(titles[mViewPager.getCurrentItem()]);
     }
 
-    public void setUpNavigationDrawer(){
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+    @OnClick(R.id.btnDone) void doneClicked(){
+        drawer.closeDrawer(GravityCompat.END);
+        //REFRESH LIST
+    }
 
-        //navigationView.setNavigationItemSelectedListener(this);
-
-        toggle.setDrawerIndicatorEnabled(false);
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.END)) drawer.closeDrawer(GravityCompat.END);
+        else moveTaskToBack(true);
     }
 
     @Override
@@ -81,24 +88,12 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.filter) {
-            return true;
-        }*/
-        drawer.openDrawer(Gravity.RIGHT);
+        drawer.openDrawer(GravityCompat.END);
         return super.onOptionsItemSelected(item);
     }
 
-    /*@Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        return false;
-    }*/
+    @Override
+    public void onFragmentInteraction(Uri uri) {}
 
     /**
      * A placeholder fragment containing a simple view.
@@ -126,8 +121,7 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_list, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_list, container, false);
         }
     }
 
