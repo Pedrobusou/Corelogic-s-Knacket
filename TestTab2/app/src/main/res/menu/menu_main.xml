@@ -7,7 +7,7 @@
         android:id="@+id/filter"
         android:orderInCategory="1"
         android:title="filter"
-        app:showAsAction="never"/>
-
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="always"/>
 
 </menu>

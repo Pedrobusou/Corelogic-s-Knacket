@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pedroramos.testtab2.R;
 
@@ -71,10 +72,19 @@ public class FilterFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_filter, container);
+        ButterKnife.bind(this, view);
+
+        tvMaxKm.setText(seekBar.getProgress() + "km");
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+                tvMaxKm.setText(seekBar.getProgress() + "km");
             }
 
             @Override
@@ -84,15 +94,9 @@ public class FilterFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                tvMaxKm.setText(seekBar.getProgress() + "km");
             }
         });
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_filter, container);
-        ButterKnife.bind(this, view);
 
         return view;
     }
@@ -102,7 +106,7 @@ public class FilterFragment extends Fragment {
     }
 
     @OnClick(R.id.btnDone) void doneClicked(){
-
+        Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -34,7 +34,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rensa"
+                android:text="Reset"
                 android:id="@+id/btnReset"
                 android:textColor="@android:color/holo_red_dark"
                 android:layout_alignParentStart="true"
@@ -46,15 +46,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Filter"
                 android:id="@+id/textView2"
-                android:layout_toEndOf="@id/btnReset"
-                android:layout_toStartOf="@id/btnDone"
+                android:layout_toEndOf="@+id/btnReset"
+                android:layout_toStartOf="@+id/btnDone"
                 android:gravity="center"
                 android:layout_alignParentEnd="false" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Klar"
+                android:text="Done"
                 android:id="@+id/btnDone"
                 android:textColor="@android:color/holo_red_dark"
                 android:layout_alignParentEnd="true"
@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="KATEGORIER"
+                    android:text="CATEGORY"
                     android:id="@+id/textView4"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Category"
+                    android:text="Choose"
                     android:id="@+id/textView5"
                     android:layout_alignParentStart="true" />
 
@@ -199,7 +199,7 @@
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
                     android:layout_toEndOf="@id/tvMinKm"
-                    android:layout_toStartOf="@id/tvMaxKm"
+                    android:layout_toStartOf="@+id/tvMaxKm"
                     android:layout_centerInParent="true" />
 
                 <TextView
@@ -212,8 +212,6 @@
                     android:layout_marginLeft="10dp" />
 
             </RelativeLayout>
-
         </LinearLayout>
     </ScrollView>
-
-</RelativeLayout>
+</FrameLayout>

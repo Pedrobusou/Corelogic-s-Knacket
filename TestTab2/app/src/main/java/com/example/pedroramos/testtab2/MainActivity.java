@@ -2,7 +2,10 @@ package com.example.pedroramos.testtab2;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -11,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,13 +23,17 @@ import android.view.ViewGroup;
 
 import android.widget.ListView;
 
+import com.example.pedroramos.testtab2.Fragments.FilterFragment;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     @Bind(R.id.container) ViewPager mViewPager;
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.tabs) TabLayout tabLayout;
+    @Bind(R.id.drawer_layout) DrawerLayout drawer;
+    //@Bind(R.id.nav_view) NavigationView navigationView;
 
     private TabsAdapter mTabsAdapter;
 
@@ -38,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        setUpTabs();
+        //setUpNavigationDrawer();
+    }
+
+    public void setUpTabs(){
         toolbar.setTitle("addTitle");
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -49,9 +62,19 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    public void setUpNavigationDrawer(){
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        //navigationView.setNavigationItemSelectedListener(this);
+
+        toggle.setDrawerIndicatorEnabled(false);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds FILTER ICON, which pops up FILTER MENU (navigationDrawer).
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -61,15 +84,21 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+
+        //int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.filter) {
+        /*if (id == R.id.filter) {
             return true;
-        }
-
+        }*/
+        drawer.openDrawer(Gravity.RIGHT);
         return super.onOptionsItemSelected(item);
     }
+
+    /*@Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        return false;
+    }*/
 
     /**
      * A placeholder fragment containing a simple view.
@@ -98,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_list, container, false);
-            ListView Contact_listview;
             return rootView;
         }
     }
@@ -130,9 +158,9 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "KOP";
+                    return "Buyers";
                 case 1:
-                    return "SAJL";
+                    return "Sellers";
             }
             return null;
         }

@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Annonser"
+            android:text="Adds"
             android:id="@+id/tvExplore"
             android:layout_gravity="center_horizontal"
             android:textSize="10sp" />
