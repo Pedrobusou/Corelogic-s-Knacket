@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/ContactRow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:id="@+id/touchArea"
+        android:background="#FFFFFF"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivProfilePic"
+                android:src="@android:drawable/sym_def_app_icon"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tvBuyerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:text="Andreas Furst"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentRight="false" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/rlData"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tvBuyerCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hundpassning"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="3-mar 17:05"
+                android:id="@+id/tvBuyerDate"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/tvBuyerDesc"
+                android:textColor="#6E6E6E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soffa fatolj och sjrivbord skal slangas i grovsopor, bor pa 3tr grovosporna ligger isuefhisuhfiusehifuhseifuhseiufhseiufhiseuh"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_centerVertical="true"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbBuyerRating"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:rating="5"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/tvBuyerPrice"
+                android:textColor="#6E6E6E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300kr"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

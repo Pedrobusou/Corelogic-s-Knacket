@@ -1,4 +1,4 @@
-package com.example.pedroramos.testtab2.Fragments;
+package com.example.pedroramos.testtab2.ui.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pedroramos.testtab2.MainActivity;
+import com.example.pedroramos.testtab2.ui.activity.MainActivity;
 import com.example.pedroramos.testtab2.R;
 
 import butterknife.ButterKnife;

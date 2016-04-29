@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -55,18 +55,11 @@
         android:orientation="horizontal">
 
         <fragment
-            android:name="com.example.pedroramos.testtab2.Fragments.NavigationButtonsFragment"
+            android:name="com.example.pedroramos.testtab2.ui.fragments.NavigationButtonsFragment"
             android:id="@+id/fragmentNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout="@layout/fragment_navigation_buttons" />
 
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/side_menu_container"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="left|start" />
-
 </android.support.design.widget.CoordinatorLayout>

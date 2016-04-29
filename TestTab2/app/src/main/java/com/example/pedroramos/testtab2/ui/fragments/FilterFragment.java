@@ -1,4 +1,4 @@
-package com.example.pedroramos.testtab2.Fragments;
+package com.example.pedroramos.testtab2.ui.fragments;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import com.example.pedroramos.testtab2.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
@@ -27,10 +27,10 @@ import butterknife.OnItemSelected;
  * to handle interaction events.
  */
 public class FilterFragment extends Fragment {
-    @Bind((R.id.tvMaxKm)) TextView tvMaxKm;
-    @Bind(R.id.seekBar) SeekBar seekBar;
-    @Bind(R.id.spinnerCategory) Spinner spinnerCategory;
-    @Bind(R.id.spinnerTime) Spinner spinnerTime;
+    @BindView((R.id.tvMaxKm)) TextView tvMaxKm;
+    @BindView(R.id.seekBar) SeekBar seekBar;
+    @BindView(R.id.spinnerCategory) Spinner spinnerCategory;
+    @BindView(R.id.spinnerTime) Spinner spinnerTime;
 
     public int distance;
     public String category;

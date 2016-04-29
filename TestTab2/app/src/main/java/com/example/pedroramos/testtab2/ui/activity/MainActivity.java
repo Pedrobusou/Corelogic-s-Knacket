@@ -1,7 +1,5 @@
-package com.example.pedroramos.testtab2;
+package com.example.pedroramos.testtab2.ui.activity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -14,33 +12,35 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.pedroramos.testtab2.Fragments.FilterFragment;
-import com.example.pedroramos.testtab2.Fragments.NavigationButtonsFragment;
+import com.example.pedroramos.testtab2.data.model.Buyer;
+import com.example.pedroramos.testtab2.ui.adapter.BuyerAdapter;
+import com.example.pedroramos.testtab2.ui.fragments.FilterFragment;
+import com.example.pedroramos.testtab2.ui.fragments.NavigationButtonsFragment;
+import com.example.pedroramos.testtab2.R;
 
-import butterknife.Bind;
+import java.util.ArrayList;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements FilterFragment.OnFragmentInteractionListener, NavigationButtonsFragment.OnFragmentInteractionListener {
-    @Bind(R.id.container) ViewPager mViewPager;
-    @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.tabs) TabLayout tabLayout;
-    @Bind(R.id.drawer_layout) DrawerLayout drawer;
-    @Bind(R.id.toolbar_title) TextView toolbar_title;
+    @BindView(R.id.container) ViewPager mViewPager;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.tabs) TabLayout tabLayout;
+    @BindView(R.id.drawer_layout) DrawerLayout drawer;
+    @BindView(R.id.toolbar_title) TextView toolbar_title;
+    //@Bind(R.id.listBuyers) ListView listBuyers;
 
     public String[] titles = {"Buyers", "Sellers"};
+    BuyerAdapter buyerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,15 @@ public class MainActivity extends AppCompatActivity implements FilterFragment.On
         setContentView(R.layout.main_activity);
         ButterKnife.bind(this);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         setUpTabs();
+
+        Buyer buyer = new Buyer();
+        ArrayList<Buyer> buyers = buyer.add3Buyers();
+
+        /*buyerAdapter = new BuyerAdapter(this, R.layout.listview_row_buyers, buyers);
+        listBuyers.setAdapter(buyerAdapter);
+        buyerAdapter.notifyDataSetChanged();*/
     }
 
     public void setUpTabs(){
@@ -121,7 +125,18 @@ public class MainActivity extends AppCompatActivity implements FilterFragment.On
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_list, container, false);
+
+            View tab;
+            Bundle args = getArguments();
+            int currentView = args.getInt(PlaceholderFragment.ARG_SECTION_NUMBER)-2;
+
+            if(currentView == 0){
+                tab = inflater.inflate(R.layout.fragment_filter_menu, container, false);
+            }else {
+                tab = inflater.inflate(R.layout.fragment_list, container, false);
+            }
+
+            return tab;
         }
     }
 

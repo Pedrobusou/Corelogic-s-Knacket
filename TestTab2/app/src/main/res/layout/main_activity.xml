@@ -17,15 +17,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:layout_gravity="right" > <!--Start to be shown here. Right to work in app-->
+        android:layout_gravity="start" > <!--Start to be shown here. Right to work in app-->
 
         <fragment
-            android:name="com.example.pedroramos.testtab2.Fragments.FilterFragment"
+            android:name="com.example.pedroramos.testtab2.ui.fragments.FilterFragment"
             android:id="@+id/fragmentFilter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_filter_menu" />
 
     </android.support.design.widget.NavigationView>
-
 </android.support.v4.widget.DrawerLayout>
